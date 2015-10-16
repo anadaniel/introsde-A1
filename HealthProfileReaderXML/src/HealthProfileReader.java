@@ -1,6 +1,4 @@
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,9 +13,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-import pojos.HealthProfile;
-import pojos.Person;
-
 
 public class HealthProfileReader {  
   Document doc;
@@ -25,26 +20,48 @@ public class HealthProfileReader {
   
   public void loadXML() throws ParserConfigurationException, SAXException, IOException {
 
-      DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-      domFactory.setNamespaceAware(true);
-      DocumentBuilder builder = domFactory.newDocumentBuilder();
-      doc = builder.parse("people.xml");
+    DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
+    domFactory.setNamespaceAware(true);
+    DocumentBuilder builder = domFactory.newDocumentBuilder();
+    doc = builder.parse("people.xml");
 
       //creating xpath object
-      getXPathObj();
+    getXPathObj();
   }
   
   public XPath getXPathObj() {
-	  
-      XPathFactory factory = XPathFactory.newInstance();
-      xpath = factory.newXPath();
-      return xpath;
+
+    XPathFactory factory = XPathFactory.newInstance();
+    xpath = factory.newXPath();
+    return xpath;
   }
   
+  /**
+  * Returns a node that contains the weight data of a person's healthprofile
+  * 
+  * @param firstname  A person's firstname
+  * @param lastname   A person's lastname
+  * @return node      The found weight node
+  */
   public Node getWeight(String firstname, String lastname) throws XPathExpressionException {
-	  XPathExpression expr = xpath.compile("/people/person[firstname='" + firstname + "' and lastname='" + lastname + "']/healthprofile/weight");
-	  Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
-	  return node;
+
+    XPathExpression expr = xpath.compile("/people/person[firstname='" + firstname + "' and lastname='" + lastname + "']/healthprofile/weight");
+    Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
+    return node;
+  }
+
+  /**
+  * Returns a node that contains the height data of a person's healthprofile
+  * 
+  * @param firstname  A person's firstname
+  * @param lastname   A person's lastname
+  * @return node      The found height node
+  */
+  public Node getHeight(String firstname, String lastname) throws XPathExpressionException {
+
+    XPathExpression expr = xpath.compile("/people/person[firstname='" + firstname + "' and lastname='" + lastname + "']/healthprofile/height");
+    Node node = (Node) expr.evaluate(doc, XPathConstants.NODE);
+    return node;
   }
 
     /**
@@ -59,19 +76,30 @@ public class HealthProfileReader {
       int argCount = args.length;
 
       if (argCount > 1) {
-    	  HealthProfileReader profileReader = new HealthProfileReader();
-    	  profileReader.loadXML();
-        if ( args[0].equals("getWeight") ) {
+
+        HealthProfileReader profileReader = new HealthProfileReader();
+        profileReader.loadXML();
+
+        if ( args[0].equals("getWeight") || args[0].equals("getHeight") ) {
           if (args[1] != null && args[2] != null ) {
-        	Node weight = profileReader.getWeight(args[1], args[2]);
-        	if (weight != null){
-        		System.out.println( weight.getTextContent()  );
-        	}
-        	else {
-        		System.out.println("Person not found!");
-        	}
+            Node result = null;
+
+            if ( args[0].equals("getWeight") ) {
+              result = profileReader.getWeight(args[1], args[2]);
+            }
+            else {
+              result = profileReader.getHeight(args[1], args[2]);
+            }
+
+            if (result != null){
+              System.out.println( result.getTextContent()  );
+            }
+            else {
+              System.out.println("Person not found!");
+            }
+            
           } else {
-            System.out.println("I cannot perform get the weight without a first and last name.");
+            System.out.println("I need a first and last name to retreive a person's data");
           }
         }
       }
