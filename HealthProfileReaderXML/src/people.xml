@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<people>
+  <person id="0001">
+    <firstname>Billie</firstname>
+    <lastname>Armstrong</lastname>
+    <birthdate>1972-02-17T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>80</weight>
+      <height>1.70</height>
+      <bmi>23.14</bmi>
+    </healthprofile>
+  </person>
+  <person id="0002">
+    <firstname>Patrick</firstname>
+    <lastname>Wolf</lastname>
+    <birthdate>1983-06-30T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>90</weight>
+      <height>1.90</height>
+      <bmi>26.14</bmi>
+    </healthprofile>
+  </person>
+  <person id="0003">
+    <firstname>Brian</firstname>
+    <lastname>Molko</lastname>
+    <birthdate>1972-12-10T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>79</weight>
+      <height>1.69</height>
+      <bmi>24.25</bmi>
+    </healthprofile>
+  </person>
+  <person id="0004">
+    <firstname>David</firstname>
+    <lastname>Bowie</lastname>
+    <birthdate>1947-01-08T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>88</weight>
+      <height>1.78</height>
+      <bmi>25.00</bmi>
+    </healthprofile>
+  </person>
+  <person id="0005">
+    <firstname>Leonard</firstname>
+    <lastname>Cohen</lastname>
+    <birthdate>1934-01-01T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>91</weight>
+      <height>1.74</height>
+      <bmi>27.41</bmi>
+    </healthprofile>
+  </person>
+  <person id="0006">
+    <firstname>Kylie</firstname>
+    <lastname>Minogue</lastname>
+    <birthdate>1968-01-01T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>45</weight>
+      <height>1.52</height>
+      <bmi>21.70</bmi>
+    </healthprofile>
+  </person>
+  <person id="0007">
+    <firstname>Robyn</firstname>
+    <lastname>Carlsson</lastname>
+    <birthdate>1979-01-01T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>55</weight>
+      <height>1.60</height>
+      <bmi>23.40</bmi>
+    </healthprofile>
+  </person>
+  <person id="0008">
+    <firstname>Marina</firstname>
+    <lastname>Diamandis</lastname>
+    <birthdate>1985-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>64</weight>
+      <height>1.73</height>
+      <bmi>24.03</bmi>
+    </healthprofile>
+  </person>
+  <person id="0009">
+    <firstname>Nicola</firstname>
+    <lastname>Roberts</lastname>
+    <birthdate>1985-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>55</weight>
+      <height>1.65</height>
+      <bmi>22.35</bmi>
+    </healthprofile>
+  </person>
+  <person id="0010">
+    <firstname>Sophie</firstname>
+    <lastname>Ellis-Bextor</lastname>
+    <birthdate>1979-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>62</weight>
+      <height>1.75</height>
+      <bmi>24.01</bmi>
+    </healthprofile>
+  </person>
+  <person id="0011">
+    <firstname>Damon</firstname>
+    <lastname>Albarn</lastname>
+    <birthdate>1968-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>90</weight>
+      <height>1.80</height>
+      <bmi>26.04</bmi>
+    </healthprofile>
+  </person>
+  <person id="0012">
+    <firstname>Ezra</firstname>
+    <lastname>Koenig</lastname>
+    <birthdate>1984-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>87</weight>
+      <height>1.82</height>
+      <bmi>27.14</bmi>
+    </healthprofile>
+  </person>
+  <person id="0013">
+    <firstname>Brandon</firstname>
+    <lastname>Flowers</lastname>
+    <birthdate>1981-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>90</weight>
+      <height>1.78</height>
+      <bmi>27.03</bmi>
+    </healthprofile>
+  </person>
+  <person id="0014">
+    <firstname>Iggy</firstname>
+    <lastname>Pop</lastname>
+    <birthdate>1947-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>89</weight>
+      <height>1.71</height>
+      <bmi>26.14</bmi>
+    </healthprofile>
+  </person>
+  <person id="0015">
+    <firstname>Elvis</firstname>
+    <lastname>Costello</lastname>
+    <birthdate>1954-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>92</weight>
+      <height>1.78</height>
+      <bmi>28.87</bmi>
+    </healthprofile>
+  </person>
+  <person id="0016">
+    <firstname>Janelle</firstname>
+    <lastname>Monae</lastname>
+    <birthdate>1985-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>46</weight>
+      <height>1.52</height>
+      <bmi>22.40</bmi>
+    </healthprofile>
+  </person>
+  <person id="0017">
+    <firstname>Lily</firstname>
+    <lastname>Allen</lastname>
+    <birthdate>1985-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>52</weight>
+      <height>1.58</height>
+      <bmi>22.41</bmi>
+    </healthprofile>
+  </person>
+  <person id="0018">
+    <firstname>PJ</firstname>
+    <lastname>Harvey</lastname>
+    <birthdate>1969-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>54</weight>
+      <height>1.62</height>
+      <bmi>23.15</bmi>
+    </healthprofile>
+  </person>
+  <person id="0019">
+    <firstname>Susanne</firstname>
+    <lastname>Sundfor</lastname>
+    <birthdate>1986-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>53</weight>
+      <height>1.62</height>
+      <bmi>23.76</bmi>
+    </healthprofile>
+  </person>
+  <person id="0020">
+    <firstname>Little</firstname>
+    <lastname>Boots</lastname>
+    <birthdate>1984-09-20T18:00:00.000+02:00</birthdate>
+    <healthprofile>
+      <lastupdate>2014-09-20T18:00:00.000+02:00</lastupdate>
+      <weight>56</weight>
+      <height>1.60</height>
+      <bmi>26.76</bmi>
+    </healthprofile>
+  </person>
+</people>
