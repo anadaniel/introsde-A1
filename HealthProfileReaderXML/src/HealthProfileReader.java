@@ -97,6 +97,44 @@ public class HealthProfileReader {
     System.out.println( "Birthdate: " + person_element.getElementsByTagName("birthdate").item(0).getTextContent() );
   }
 
+  /**
+  * Finds a person from a given ID
+  *
+  * @param id   The id of a person from the people XML
+  */
+  public Node findPersonById(String id) throws XPathExpressionException {
+    XPathExpression expr = xpath.compile("(//person[@id=" + id + "])[1]");
+    Node person = (Node) expr.evaluate(doc, XPathConstants.NODE);
+    return person;
+  }
+
+  /**
+  * Prints the Health Profile of a person.
+  *
+  * @param person   A Node representing a person from the xml file.
+  */
+  public void printHealthProfile( Node person ) {
+    Element person_element = (Element) person;
+    Element health_profile = (Element) person_element.getElementsByTagName("healthprofile").item(0);
+
+    System.out.println( "Height: " + health_profile.getElementsByTagName("weight").item(0).getTextContent() );
+    System.out.println( "Weight: " + health_profile.getElementsByTagName("height").item(0).getTextContent() );
+    System.out.println( "BMI: " + health_profile.getElementsByTagName("bmi").item(0).getTextContent() );
+  }
+
+  /**
+  * Finds a person from a given ID and then it prints its Health Profile
+  *
+  * @param id   The id of a person from the people XML
+  */
+  public void printHealthProfileFromId( String id ) throws XPathExpressionException {
+    Node person = findPersonById(id);
+
+    if ( person != null ){
+      printHealthProfile(person);
+    }
+  }
+
     /**
      * The health profile reader gets information from the command line about
      * weight and height and calculates the BMI of the person based on this 
@@ -139,6 +177,11 @@ public class HealthProfileReader {
         else {
           if ( args[0].equals("printPeople") ) {
             profileReader.printPeople();
+          }
+          else {
+            if ( args[0].equals("printHealthProfileFromId") ){
+              profileReader.printHealthProfileFromId( args[1] );
+            }
           }
         }
       }
