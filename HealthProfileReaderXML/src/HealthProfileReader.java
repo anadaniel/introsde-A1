@@ -10,7 +10,9 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 
@@ -64,6 +66,37 @@ public class HealthProfileReader {
     return node;
   }
 
+  /**
+  * Print a list of all people in the people.xml file
+  */
+  public void printPeople() throws XPathExpressionException {
+
+    XPathExpression expr = xpath.compile("//person");
+    NodeList person_nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
+
+    Integer number_of_people = person_nodes.getLength();
+
+    for (int i = 0; i < number_of_people; i++) {
+
+      Node person = person_nodes.item(i);
+      printPerson(person);
+    }
+  }
+
+  /**
+  * Prints the personal details of a person.
+  *
+  * @param person   A Node representing a person from the xml file.
+  */
+  public void printPerson( Node person ) {
+    Element person_element = (Element) person;
+
+    System.out.println( "Id: " + person_element.getAttribute("id") );
+    System.out.println( "Firstname: " + person_element.getElementsByTagName("firstname").item(0).getTextContent() );
+    System.out.println( "Lastname: " + person_element.getElementsByTagName("lastname").item(0).getTextContent() );
+    System.out.println( "Birthdate: " + person_element.getElementsByTagName("birthdate").item(0).getTextContent() );
+  }
+
     /**
      * The health profile reader gets information from the command line about
      * weight and height and calculates the BMI of the person based on this 
@@ -75,11 +108,12 @@ public class HealthProfileReader {
     IOException, XPathExpressionException {
       int argCount = args.length;
 
-      if (argCount > 1) {
+      if (argCount >= 1) {
 
         HealthProfileReader profileReader = new HealthProfileReader();
         profileReader.loadXML();
 
+        // Process getWeight and getHeight functions
         if ( args[0].equals("getWeight") || args[0].equals("getHeight") ) {
           if (args[1] != null && args[2] != null ) {
             Node result = null;
@@ -97,9 +131,14 @@ public class HealthProfileReader {
             else {
               System.out.println("Person not found!");
             }
-            
+
           } else {
             System.out.println("I need a first and last name to retreive a person's data");
+          }
+        }
+        else {
+          if ( args[0].equals("printPeople") ) {
+            profileReader.printPeople();
           }
         }
       }
