@@ -77,21 +77,21 @@
     <java classname="HealthProfileReader" classpath="build">
       <arg value="printPeople"/>
     </java>
-    
+
     <echo message=">>>>> Running instruction #3 based on Lab #3 with id = 0005"/>
     <java classname="HealthProfileReader" classpath="build">
       <arg value="printHealthProfileFromId"/>
       <arg value="0005"/>
     </java>
-    
+
     <echo message=">>>>> Running instruction #4 based on Lab #3 with >90"/>
     <java classname="HealthProfileReader" classpath="build">
       <arg value="printPeople"/>
       <arg value=">90"/>
     </java>
 
-    <echo message=">>>>> Running instruction #2 based on Lab #4" />
-    <java classname="HealthProfileWriter" classpath="${BuildDir}">
+    <echo message=">>>>> Running instruction #2 (Marhsaller) based on Lab #4" />
+    <java classname="HealthProfileMarshaller" classpath="${BuildDir}">
       <classpath>
         <fileset dir="${LibDir}">
           <include name="**/*.jar" />
