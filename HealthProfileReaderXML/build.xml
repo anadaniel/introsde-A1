@@ -1,17 +1,32 @@
 <?xml version="1.0"?>
-<project name="HealthProfileReaderXML" default="compile" basedir=".">
+<project name="HealthProfileReaderXML" default="evaluate" basedir=".">
 
-    <property name="BuildDir" value="build"/>
+  <property name="BuildDir" value="build"/>
 
-    <target name="init">
-        <echo message="Init has been called"/>
-        <mkdir dir="${BuildDir}" />
-        <echo message="${BuildDir} has been created"/>
-    </target>
-    <target name="compile" depends="init">
-        <echo message="Compile target has been called"/>
-        <javac srcdir="src" destdir="${BuildDir}" />
-    	<java classname="HealthProfileReader" classpath="build">
-    	</java>
-    </target>
+  <target name="init">
+    <echo message="Init has been called"/>
+    <mkdir dir="${BuildDir}" />
+    <echo message="${BuildDir} has been created"/>
+  </target>
+  <target name="compile" depends="init">
+    <echo message="Compile target has been called"/>
+    <javac srcdir="src" destdir="${BuildDir}" />
+  </target>
+
+  <target name="evaluate" depends="compile">
+    <echo message=">>>>> Running instruction #2 based on Lab #3"/>
+    <java classname="HealthProfileReader" classpath="build">
+      <arg value="printPeople"/>
+    </java>
+    <echo message=">>>>> Running instruction #3 based on Lab #3 with id = 0005"/>
+    <java classname="HealthProfileReader" classpath="build">
+      <arg value="printHealthProfileFromId"/>
+      <arg value="0005"/>
+    </java>
+    <echo message=">>>>> Running instruction #4 based on Lab #3 with >90"/>
+    <java classname="HealthProfileReader" classpath="build">
+      <arg value="printPeople"/>
+      <arg value=">90"/>
+    </java>
+  </target>
 </project>
