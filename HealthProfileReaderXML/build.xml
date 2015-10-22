@@ -1,9 +1,68 @@
 <?xml version="1.0"?>
-<project name="HealthProfileReaderXML" default="evaluate" basedir=".">
+<project name="HealthProfileReaderXML" default="evaluate" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+  <!-- PART 1: Ivy properties, download, installation and configuration -->
+  <property name="ivy.install.version" value="2.4.0-rc1" />
+  <property name="ivy.jar.dir" value="${basedir}/ivy" />
+  <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar" />
+
+  <!-- this targe will donwload ivy.jar if its inot in the "ivy" folder yet -->
+  <target name="download-ivy" unless="skip.download">
+    <mkdir dir="${ivy.jar.dir}"/>
+    <!-- download Ivy from web site so that it can be used even without any special installation -->
+    <echo message="installing ivy..."/>
+    <get src="http://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" dest="${ivy.jar.file}" usetimestamp="true"/>
+  </target>
+
+  <!--
+    =================================
+    target: install-ivy
+    this target is not necessary if you put ivy.jar in your ant lib directory
+    if you already have ivy in your ant lib, you can simply remove this
+    target and the dependency the 'init' target has on it
+    ================================= 
+  -->
+  <target name="install-ivy" depends="download-ivy" description="--> install ivy">
+    <!--
+      try to load ivy here from local ivy dir, in case the user has not already dropped
+      it into ant's lib dir (note that the latter copy will always take precedence).
+      We will not fail as long as local lib dir exists (it may be empty) and
+      ivy is in at least one of ant's lib dir or the local lib dir. 
+    -->
+    <path id="ivy.lib.path">
+      <fileset dir="${ivy.jar.dir}" includes="*.jar"/>
+    </path>
+    <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
+  </target>
 
   <property name="BuildDir" value="build"/>
+  <property name="SrcDir" value="src" />
+  <property name="LibDir" value="lib" />
 
-  <target name="init">
+  <!-- 
+    =================================
+      target: resolve downloads the dependencies to your lib folder
+    =================================
+  -->
+  <target name="resolve" depends="install-ivy" description="--> retrieve dependencies with ivy">
+    <ivy:retrieve pattern="${LibDir}/[artifact]-[type]-[revision].[ext]"/>
+  </target>
+
+  <!-- paths where ivy libraries will be downloaded, use them as classpathref in your compilation and running tasks  -->
+  <path id="lib.path.id">
+    <fileset dir="${LibDir}" />
+  </path>
+
+
+  <path id="run.path.id">
+    <path refid="lib.path.id" />
+    <fileset dir="${BuildDir}">
+      <include name="*.class" />
+      <include name="**/*.class" />
+      <exclude name="**/*Test*" />
+    </fileset>
+  </path>
+
+  <target name="init" depends="install-ivy, resolve">
     <echo message="Init has been called"/>
     <mkdir dir="${BuildDir}" />
     <echo message="${BuildDir} has been created"/>
@@ -18,15 +77,27 @@
     <java classname="HealthProfileReader" classpath="build">
       <arg value="printPeople"/>
     </java>
+    
     <echo message=">>>>> Running instruction #3 based on Lab #3 with id = 0005"/>
     <java classname="HealthProfileReader" classpath="build">
       <arg value="printHealthProfileFromId"/>
       <arg value="0005"/>
     </java>
+    
     <echo message=">>>>> Running instruction #4 based on Lab #3 with >90"/>
     <java classname="HealthProfileReader" classpath="build">
       <arg value="printPeople"/>
       <arg value=">90"/>
+    </java>
+
+    <echo message=">>>>> Running instruction #2 based on Lab #4" />
+    <java classname="HealthProfileWriter" classpath="${BuildDir}">
+      <classpath>
+        <fileset dir="${LibDir}">
+          <include name="**/*.jar" />
+          <include name="*.jar" />
+        </fileset>
+      </classpath>
     </java>
   </target>
 </project>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<people>
+    <person id="1">
+        <firstname>Ana</firstname>
+        <lastname>Daniel</lastname>
+        <birthdate>1990-08-01</birthdate>
+        <healthprofile>
+            <weight>58.0</weight>
+            <height>1.6</height>
+            <bmi>22.656249999999996</bmi>
+        </healthprofile>
+    </person>
+    <person id="2">
+        <firstname>Mafer</firstname>
+        <lastname>Chuchuni</lastname>
+        <birthdate>1990-06-02</birthdate>
+        <healthprofile>
+            <weight>51.0</weight>
+            <height>1.54</height>
+            <bmi>21.504469556417607</bmi>
+        </healthprofile>
+    </person>
+    <person id="3">
+        <firstname>Karen</firstname>
+        <lastname>Jaqueline</lastname>
+        <birthdate>1990-06-05</birthdate>
+        <healthprofile>
+            <weight>68.0</weight>
+            <height>1.67</height>
+            <bmi>24.38237297859371</bmi>
+        </healthprofile>
+    </person>
+</people>
