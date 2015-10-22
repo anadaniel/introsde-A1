@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<project name="HealthProfileReaderXML" default="compile" basedir=".">
+
+    <property name="BuildDir" value="build"/>
+
+    <target name="init">
+        <echo message="Init has been called"/>
+        <mkdir dir="${BuildDir}" />
+        <echo message="${BuildDir} has been created"/>
+    </target>
+    <target name="compile" depends="init">
+        <echo message="Compile target has been called"/>
+        <javac srcdir="src" destdir="${BuildDir}" />
+    	<java classname="HealthProfileReader" classpath="build">
+    	</java>
+    </target>
+</project>
