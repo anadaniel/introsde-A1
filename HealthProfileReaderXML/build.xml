@@ -37,6 +37,7 @@
   <property name="BuildDir" value="build"/>
   <property name="SrcDir" value="src" />
   <property name="LibDir" value="lib" />
+  <property name="xjc.package" value="generated" />
 
   <!-- 
     =================================
@@ -67,12 +68,19 @@
     <mkdir dir="${BuildDir}" />
     <echo message="${BuildDir} has been created"/>
   </target>
-  <target name="compile" depends="init">
+
+  <target name="generate" depends="init">
+    <taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask" classpathref="lib.path.id">
+    </taskdef>
+    <xjc schema="PeopleSchema.xsd" destdir="${SrcDir}" package="${xjc.package}" />
+  </target>
+
+  <target name="compile" depends="init, generate">
     <echo message="Compile target has been called"/>
     <javac srcdir="src" destdir="${BuildDir}" />
   </target>
 
-  <target name="evaluate" depends="compile">
+  <target name="execute.evaluation" depends="compile">
     <echo message=">>>>> Running instruction #2 based on Lab #3"/>
     <java classname="HealthProfileReader" classpath="build">
       <arg value="printPeople"/>
@@ -91,7 +99,17 @@
     </java>
 
     <echo message=">>>>> Running instruction #2 (Marhsaller) based on Lab #4" />
-    <java classname="HealthProfileMarshaller" classpath="${BuildDir}">
+    <java classname="JAXBMarshaller" classpath="${BuildDir}">
+      <classpath>
+        <fileset dir="${LibDir}">
+          <include name="**/*.jar" />
+          <include name="*.jar" />
+        </fileset>
+      </classpath>
+    </java>
+
+    <echo message=">>>>> Running instruction #2 (Unmarhsaller) based on Lab #4" />
+    <java classname="JAXBUnMarshaller" classpath="${BuildDir}">
       <classpath>
         <fileset dir="${LibDir}">
           <include name="**/*.jar" />
