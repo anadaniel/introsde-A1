@@ -80,24 +80,30 @@
     <javac srcdir="src" destdir="${BuildDir}" />
   </target>
 
-  <target name="execute.evaluation" depends="compile">
+  <target name="execute.task1">
     <echo message=">>>>> Running instruction #2 based on Lab #3"/>
     <java classname="HealthProfileReader" classpath="build">
       <arg value="printPeople"/>
     </java>
+  </target>
 
+  <target name="execute.task2">
     <echo message=">>>>> Running instruction #3 based on Lab #3 with id = 0005"/>
     <java classname="HealthProfileReader" classpath="build">
       <arg value="printHealthProfileFromId"/>
       <arg value="0005"/>
     </java>
+  </target>
 
+  <target name="execute.task3">
     <echo message=">>>>> Running instruction #4 based on Lab #3 with >90"/>
     <java classname="HealthProfileReader" classpath="build">
       <arg value="printPeople"/>
       <arg value=">90"/>
     </java>
+  </target>
 
+  <target name="execute.task4">
     <echo message=">>>>> Running instruction #2 (Marhsaller) based on Lab #4" />
     <java classname="JAXBMarshaller" classpath="${BuildDir}">
       <classpath>
@@ -107,7 +113,9 @@
         </fileset>
       </classpath>
     </java>
+  </target>
 
+  <target name="execute.task5">
     <echo message=">>>>> Running instruction #2 (Unmarhsaller) based on Lab #4" />
     <java classname="JAXBUnMarshaller" classpath="${BuildDir}">
       <classpath>
@@ -117,5 +125,11 @@
         </fileset>
       </classpath>
     </java>
+  </target>
+
+  <target name="execute.evaluation" depends="compile, execute.task1, execute.task2, execute.task3,
+    execute.task4, execute.task5">
+
+    <echo message="Executed tasks from Assignment 01 by Ana Daniel" />    
   </target>
 </project>

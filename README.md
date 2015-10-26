@@ -21,6 +21,6 @@ The tasks that run in this assignment are the following:
 
 ```
   git clone git@github.com:anadaniel/introsde-A1.git
-  cd introsde-A1
+  cd introsde-A1/HealthProfileReaderXML
   ant execute.evaluation
 ```
