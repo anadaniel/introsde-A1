@@ -77,7 +77,7 @@
 
   <target name="compile" depends="init, generate">
     <echo message="Compile target has been called"/>
-    <javac srcdir="src" destdir="${BuildDir}" />
+    <javac srcdir="src" destdir="${BuildDir}" classpathref="lib.path.id" />
   </target>
 
   <target name="execute.task1">
@@ -127,8 +127,20 @@
     </java>
   </target>
 
+  <target name="execute.task6" >
+    <echo message=">>>>> Running instruction #3 (Marshaling to JSON) based on Lab #4" />
+    <java classname="HealthProfileJson" classpath="${BuildDir}">
+      <classpath>
+        <fileset dir="${LibDir}">
+          <include name="**/*.jar" />
+          <include name="*.jar" />
+        </fileset>
+      </classpath>
+    </java>
+  </target>
+
   <target name="execute.evaluation" depends="compile, execute.task1, execute.task2, execute.task3,
-    execute.task4, execute.task5">
+    execute.task4, execute.task5, execute.task6">
 
     <echo message="Executed tasks from Assignment 01 by Ana Daniel" />    
   </target>

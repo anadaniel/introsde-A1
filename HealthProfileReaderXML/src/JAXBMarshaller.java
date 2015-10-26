@@ -2,6 +2,8 @@ import generated.*;
 
 import javax.xml.bind.*;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -71,6 +73,15 @@ public class JAXBMarshaller {
       JAXBElement<PeopleType> peopleElement = factory.createPeople(people);
       System.out.println(peopleElement);
       marshaller.marshal(peopleElement, new FileOutputStream(xmlDocument));
+
+      // Print file content
+      BufferedReader in = new BufferedReader(new FileReader(xmlDocument));
+      String line;
+      while((line = in.readLine()) != null)
+      {
+        System.out.println(line);
+      }
+      in.close();
 
     } catch (IOException e) {
       System.out.println(e.toString());

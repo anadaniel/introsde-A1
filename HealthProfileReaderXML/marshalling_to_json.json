@@ -1,0 +1,33 @@
+{
+  "person" : [ {
+    "firstname" : "Ana",
+    "lastname" : "Daniel",
+    "birthdate" : "1990-08-01",
+    "healthprofile" : {
+      "weight" : 58.0,
+      "height" : 1.6,
+      "bmi" : 22.656249999999996
+    },
+    "id" : 1
+  }, {
+    "firstname" : "Mafer",
+    "lastname" : "Chuchuni",
+    "birthdate" : "1990-06-02",
+    "healthprofile" : {
+      "weight" : 51.0,
+      "height" : 1.54,
+      "bmi" : 21.504469556417607
+    },
+    "id" : 2
+  }, {
+    "firstname" : "Karen",
+    "lastname" : "Jaqueline",
+    "birthdate" : "1990-06-05",
+    "healthprofile" : {
+      "weight" : 68.0,
+      "height" : 1.67,
+      "bmi" : 24.38237297859371
+    },
+    "id" : 3
+  } ]
+}

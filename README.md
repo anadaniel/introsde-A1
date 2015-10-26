@@ -15,7 +15,7 @@ The tasks that run in this assignment are the following:
 3. Runs instruction 4 based on Lab 3 with weight > 90. This prints all persons with a weight greater than 90.
 4. Runs instruction 2 based on Lab 4. This takes the PeopleSchema.xml and generates the necessary classes to marshall and unmarshall objects to/from XML. It then creates 3 person objects from the generated classes and creates an XML file called `marshalling_to_xml.xml`
 5. Runs instruction 2 based on Lab 4 (un-marshaling from XML). Using the output xml created in task #4, this task takes the 3 persons in the file, creates the objects and prints them on screen.
-6. ~~Runs instruction 3 based on Lab 4~~ (Not implemented)
+6. Runs instruction 3 based on Lab 4. It creates 3 persons and then marshalls them into a json file.
 
 ### About how to execute
 
